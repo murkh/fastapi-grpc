@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 import grpc
 from pydantic import BaseModel
 
-from generated import user_pb2, user_pb2_grpc
+from .generated import user_pb2, user_pb2_grpc
 
 app = FastAPI()
 
