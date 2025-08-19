@@ -33,23 +33,28 @@ A typical structure for this project would be:
 ## Setup and Installation
 
 1.  **Clone the repository:**
+
     ```bash
     git clone <your-repository-url>
     cd fastapi-grpc
     ```
 
 2.  **Create and activate a virtual environment:**
+
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
+
     On Windows, use:
+
     ```powershell
     .\.venv\Scripts\Activate.ps1
     ```
 
 3.  **Install the dependencies:**
     Create a `requirements.txt` file if one doesn't exist:
+
     ```txt
     fastapi
     uvicorn[standard]
@@ -57,7 +62,9 @@ A typical structure for this project would be:
     grpcio-tools
     protobuf
     ```
+
     Then install the dependencies:
+
     ```bash
     pip install -r requirements.txt
     ```
@@ -67,20 +74,19 @@ A typical structure for this project would be:
     ```bash
     python -m grpc_tools.protoc -I./proto --python_out=./src/generated --pyi_out=./src/generated --grpc_python_out=./src/generated ./proto/user.proto
     ```
-    *Note: You might need to create an empty `src/generated/__init__.py` file to make it a package.*
+    _Note: You might need to create an empty `src/generated/__init__.py` file to make it a package._
 
 ## Running the Application
 
 You will likely need to run the gRPC server and the FastAPI server in separate terminals.
 
 1.  **Start the gRPC Server:**
-    (Assuming you have a `src/server.py` implementing the gRPC service)
+
     ```bash
-    python src/server.py
+    python -m src.user_service
     ```
 
 2.  **Start the FastAPI Server:**
-    (Assuming you have a `src/main.py` with your FastAPI app)
     ```bash
     uvicorn src.main:app --reload
     ```
